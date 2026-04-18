@@ -1,0 +1,37 @@
+<table class="table table-hover border">
+  <thead class="table-light">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Dept</th>
+      <th>GPA</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of studentsData">
+      <td>
+        <span class="badge bg-secondary">#{{ s.id }}</span>
+      </td>
+      <td class="fw-bold">{{ s.firstName }} {{ s.lastName }}</td>
+      <td>{{ s.age }}</td>
+      <td>{{ s.department }}</td>
+      <td>
+        <span [class]="s.GPA >= 3 ? 'text-success fw-bold' : 'text-danger'">{{ s.GPA }}</span>
+      </td>
+      <td class="text-center">
+        <button class="btn btn-info btn-sm text-white" [routerLink]="['/student', s.id]">
+          View
+        </button>
+        <button
+          class="btn btn-warning btn-sm text-white mx-1"
+          [routerLink]="['/edit-student', s.id]"
+        >
+          Edit
+        </button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(s.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

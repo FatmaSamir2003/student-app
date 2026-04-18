@@ -1,0 +1,7 @@
+<div style="padding: 20px" *ngIf="student">
+  <h2>Details of: {{ student.firstName }}</h2>
+  <p><strong>Email:</strong> {{ student.email }}</p>
+  <p><strong>Department:</strong> {{ student.department }}</p>
+  <p><strong>GPA:</strong> {{ student.GPA }}</p>
+  <button routerLink="/students">Back to List</button>
+</div>
